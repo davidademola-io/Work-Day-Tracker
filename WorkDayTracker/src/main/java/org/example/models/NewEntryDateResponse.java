@@ -1,5 +1,4 @@
 package org.example.models;
-
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import javax.persistence.Column;
@@ -14,16 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "entry_date",schema = "work_tracker")
-public class NewEntryDateRequest implements Serializable {
+public class NewEntryDateResponse {
 
-    @Id
-    @GeneratedValue
-    @Column(nullable = false,updatable = false)
-    private Long id;
-
-    @NotNull
-    @Column(nullable = false)
-    private Date entryDate;
-
+    private String message;
 }
