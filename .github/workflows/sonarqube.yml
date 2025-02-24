@@ -33,3 +33,4 @@ jobs:
         with:
           args: |
             -Dsonar.projectKey=davidademola-io_Work-Day-Tracker
+            -Dsonar.organization=davidademola-io
