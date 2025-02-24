@@ -50,4 +50,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: |
-            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io -Dsonar.java.binaries=target/classes/org/example/controller
+            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io -Dsonar.java.binaries=WorkDayTracker/target/classes/org/example/controller
