@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -24,6 +25,9 @@ public class NewEntryDateRequest implements Serializable {
 
     @NotNull
     @Column(nullable = false)
-    private Date entryDate;
+    private LocalDate entryDate;
+
+    @Column(nullable = false)
+    private LocalDate expiryDate;
 
 }
