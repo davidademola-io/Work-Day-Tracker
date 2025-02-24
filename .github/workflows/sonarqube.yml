@@ -22,7 +22,7 @@ jobs:
           distribution: 'zulu'
 
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@v4.1.0
