@@ -37,4 +37,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # SonarQube URL (add to secrets)
         with:
           args: |
-            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io -Dsonar.java.binaries=home/runner/work/Work-Day-Tracker/Work-Day-Tracker/WorkDayTracker/target/classes
+            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io
