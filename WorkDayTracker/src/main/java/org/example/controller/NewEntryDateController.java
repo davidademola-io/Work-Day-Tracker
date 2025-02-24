@@ -23,7 +23,7 @@ public class NewEntryDateController {
 
     @PostMapping("/newEntryDate")
     public NewEntryDateResponse enterDate(@Valid @RequestBody NewEntryDateRequest newEntryDateRequest) {
-        logger.info("received request");
+        logger.info("received request: {}", newEntryDateRequest);
         try {
             newEntryDateResponse = newEntryDate.createNewEntryDate(newEntryDateRequest);
             logger.info("request processed");

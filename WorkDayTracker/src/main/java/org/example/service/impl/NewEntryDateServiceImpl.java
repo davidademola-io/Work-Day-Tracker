@@ -21,11 +21,18 @@ public class NewEntryDateServiceImpl implements NewEntryDate {
 
     @Override
     public NewEntryDateResponse createNewEntryDate(NewEntryDateRequest newEntryDateRequest) {
-        logger.info("Processing new entry date request");
-        newEntryDateRequest.setExpiryDate(newEntryDateRequest.getEntryDate().plusDays(90));
-        newEntryDateResponse.setMessage("The date " + newEntryDateRequest.getEntryDate().toString() + " has been entered");
-        newEntryDateRepo.save(newEntryDateRequest);
+        try {
+            logger.info("Processing new entry date request");
+            newEntryDateRequest.setExpiryDate(newEntryDateRequest.getEntryDate().plusDays(90));
+            newEntryDateResponse.setMessage("The date " + newEntryDateRequest.getEntryDate().toString() + " has been entered");
+            newEntryDateRepo.save(newEntryDateRequest);
+            logger.info("New entry date was created");
+            return newEntryDateResponse;
+        }
+        catch (Exception e) {
 
-        return newEntryDateResponse;
+            newEntryDateResponse.setMessage("An error occurred while creating new entry date " + e.getMessage());
+            return newEntryDateResponse;
+        }
     }
 }
