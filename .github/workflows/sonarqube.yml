@@ -33,4 +33,9 @@ jobs:
         with:
           args: |
             -Dsonar.projectKey=davidademola-io_Work-Day-Tracker
-            -sonar.organization=davidademola-io
+            -Dsonar.organization=davidademola-io
+            - name: Debug Info
+              run: |
+                echo "SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}"
+                echo "SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}"
+                echo "SONAR_PROJECT_KEY: davidademola-io_Work-Day-Tracker"
