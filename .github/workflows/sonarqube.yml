@@ -32,4 +32,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # SonarQube URL (add to secrets)
         with:
           args: |
-            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io
+            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker-Dsonar.organization=davidademola-io -Dsonar.java.binaries=target/classes
