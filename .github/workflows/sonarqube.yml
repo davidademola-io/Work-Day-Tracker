@@ -24,6 +24,11 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Build with Maven
+        run: |
+          cd WorkDayTracker
+          mvn clean install  # or mvn compile
+
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@v4.1.0
         env:
