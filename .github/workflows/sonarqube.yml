@@ -27,7 +27,7 @@ jobs:
       - name: Build with Maven
         run: |
           cd WorkDayTracker
-          mvn clean package  # or mvn compile
+          mvn clean install sonar:sonar  # or mvn compile
 
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@v4.1.0
@@ -37,4 +37,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # SonarQube URL (add to secrets)
         with:
           args: |
-            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io -Dsonar.java.binaries=target/classes -Dsonar.sources=src/main/java/org/example
+            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io
