@@ -1,21 +1,19 @@
 package org.example.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Table(name = "entry_date",schema = "work_tracker")
+@Entity
+@Table(name = "entry_date",schema = "track")
 public class NewEntryDateRequest implements Serializable {
 
     @Id
@@ -24,10 +22,8 @@ public class NewEntryDateRequest implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(nullable = false)
     private LocalDate entryDate;
 
-    @Column(nullable = false)
     private LocalDate expiryDate;
 
 }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Work-Day-Tracker.iml" filepath="$PROJECT_DIR$/.idea/Work-Day-Tracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WorkDayTracker.iml" filepath="$PROJECT_DIR$/WorkDayTracker.iml" />
     </modules>
   </component>
 </project>

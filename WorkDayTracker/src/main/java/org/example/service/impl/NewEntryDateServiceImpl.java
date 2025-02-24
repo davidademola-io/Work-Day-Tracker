@@ -2,16 +2,18 @@ package org.example.service.impl;
 
 import org.example.models.NewEntryDateRequest;
 import org.example.models.NewEntryDateResponse;
+import org.example.repo.NewEntryDateRepo;
 import org.example.service.NewEntryDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.Date;
 
 @Service
 public class NewEntryDateServiceImpl implements NewEntryDate {
+
+    @Autowired
+    NewEntryDateRepo newEntryDateRepo;
 
     Logger logger = LoggerFactory.getLogger(NewEntryDateServiceImpl.class);
 
@@ -22,6 +24,8 @@ public class NewEntryDateServiceImpl implements NewEntryDate {
         logger.info("Processing new entry date request");
         newEntryDateRequest.setExpiryDate(newEntryDateRequest.getEntryDate().plusDays(90));
         newEntryDateResponse.setMessage("The date " + newEntryDateRequest.getEntryDate().toString() + " has been entered");
+        newEntryDateRepo.save(newEntryDateRequest);
+
         return newEntryDateResponse;
     }
 }
