@@ -30,4 +30,6 @@ jobs:
           #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token, auto-provided by GitHub Actions
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # SonarQube token from secrets
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # SonarQube URL (add to secrets)
-          run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=davidademola-io_Work-Day-Tracker
+        with:
+          args: |
+            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker
