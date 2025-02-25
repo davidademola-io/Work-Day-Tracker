@@ -10,7 +10,4 @@
       </configuration>
     </facet>
   </component>
-  <component name="SonarLintModuleSettings">
-    <option name="projectKey" value="davidademola-io_Work-Day-Tracker" />
-  </component>
 </module>
