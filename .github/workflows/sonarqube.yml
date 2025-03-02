@@ -50,4 +50,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: |
-            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io -Dsonar.java.binaries=WorkDayTracker/target/classes -Dsonar.coverage.jacoco.xmlReportPaths=WorkDayTracker/target/site/jacoco/jacoco.xml -DSonar.source=WorkDayTracker/src/main/java/org/example/** -DSonar.tests=WorkDayTracker/src/test/java/org/example/** -Dsonar.coverage.exclusions>**/src/test/**, **/src/test/java/**</sonar.coverage.exclusions
+            -Dsonar.projectKey=davidademola-io_Work-Day-Tracker -Dsonar.organization=davidademola-io -Dsonar.java.binaries=WorkDayTracker/target/classes -Dsonar.coverage.jacoco.xmlReportPaths=WorkDayTracker/target/site/jacoco/jacoco.xml -DSonar.source=WorkDayTracker/src/main/java/org/example/** -DSonar.tests=WorkDayTracker/src/test/java/org/example/** -Dsonar.coverage.exclusions=**/src/test/**, **/src/test/java/**</sonar.coverage.exclusions
