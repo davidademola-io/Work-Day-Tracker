@@ -12,14 +12,28 @@ class NewEntryDateServiceImplTest {
 
     NewEntryDateRequest newEntryDateRequest;
 
+    NewEntryDateServiceImpl newEntryDateService;
+
     @BeforeEach
-    void setNewEntryDateRequest() {
+    void init() {
         newEntryDateRequest = new NewEntryDateRequest();
-        newEntryDateRequest.setEntryDate(LocalDate.ofEpochDay(2025-02-23));
+        newEntryDateRequest.setEntryDate(LocalDate.of(2025,2,23));
+        newEntryDateService = new NewEntryDateServiceImpl();
     }
 
     @Test
-    void createNewEntryDate() {
+    void createNewEntryDateReqyest() {
         assertNotNull(newEntryDateRequest);
+        assertNotNull(newEntryDateRequest.getEntryDate());
+        assertEquals(LocalDate.of(2025,2,23), newEntryDateRequest.getEntryDate());
+        //assertEquals(LocalDate.of(2025,5,4),newEntryDateRequest.getExpiryDate());
+    }
+
+    @Test
+    void testExpiryDateIsValid() {
+        newEntryDateService.createNewEntryDate(newEntryDateRequest);
+        assertNotNull(newEntryDateRequest.getEntryDate());
+        assertEquals(LocalDate.of(2025,5,24), newEntryDateRequest.getExpiryDate());
+
     }
 }
