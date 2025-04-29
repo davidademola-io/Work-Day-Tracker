@@ -25,12 +25,13 @@ public class NewEntryDateServiceImpl implements NewEntryDate {
             logger.info("Processing new entry date request");
             newEntryDateRequest.setExpiryDate(newEntryDateRequest.getEntryDate().plusDays(90));
             newEntryDateResponse.setMessage("The date " + newEntryDateRequest.getEntryDate().toString() + " has been entered");
+            logger.info("calling save method");
             newEntryDateRepo.save(newEntryDateRequest);
+            logger.info("save method call finished");
             logger.info("New entry date was created");
             return newEntryDateResponse;
         }
         catch (Exception e) {
-
             newEntryDateResponse.setMessage("An error occurred while creating new entry date " + e.getMessage());
             return newEntryDateResponse;
         }
