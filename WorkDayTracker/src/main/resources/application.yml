@@ -3,10 +3,9 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/work_tracker
-    username: postgres
-    password: Password00
+    username: ${{ DB_USERNAME }}
+    password: ${{ DB_PASSWORD }}
 
   jpa:
     show-sql: true
     generate-ddl: true
-
