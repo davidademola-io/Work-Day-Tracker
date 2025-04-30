@@ -36,6 +36,13 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
+      - name: Print runner info
+        run: |
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Java version:"
+          java -version
+
+
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
