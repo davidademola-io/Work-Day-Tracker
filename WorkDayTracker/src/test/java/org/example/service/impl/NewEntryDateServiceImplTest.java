@@ -28,12 +28,6 @@ class NewEntryDateServiceImplTest {
     private NewEntryDateServiceImpl newEntryDateService;
 
 
-//    @BeforeEach
-//    void init() {
-//        newEntryDateRequest = new NewEntryDateRequest();
-//        newEntryDateRequest.setEntryDate(LocalDate.of(2025,2,23));
-//        newEntryDateService = new NewEntryDateServiceImpl();
-//    }
 
     @BeforeEach
     void setUp() {
@@ -68,7 +62,7 @@ class NewEntryDateServiceImplTest {
         request.setEntryDate(LocalDate.of(2025, 2, 24));
 
         NewEntryDateResponse response = new NewEntryDateResponse();
-        response.setMessage("The date 2025-02-24 has been entered");
+        response.setMessage("The date 2025-02-20 has been entered");
 
         when(newEntryDateRepo.save(any())).thenThrow(RuntimeException.class);
 

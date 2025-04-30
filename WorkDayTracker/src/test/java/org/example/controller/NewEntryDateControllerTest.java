@@ -37,7 +37,7 @@ class NewEntryDateControllerTest {
     }
 
     @Test
-    void testEnterDate_Success() {
+    void testEnterDateSuccess() {
         Mockito.when(newEntryDate.createNewEntryDate(Mockito.any())).thenReturn(successResponse);
 
         NewEntryDateResponse actual = entryDateController.enterDate(request);
@@ -46,7 +46,7 @@ class NewEntryDateControllerTest {
     }
 
     @Test
-    void testEnterDate_Exception() {
+    void testEnterDateException() {
         Mockito.when(newEntryDate.createNewEntryDate(Mockito.any()))
                 .thenThrow(new RuntimeException("Something went wrong"));
 
