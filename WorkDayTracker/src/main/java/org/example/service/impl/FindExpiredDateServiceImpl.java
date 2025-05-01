@@ -26,11 +26,11 @@ public class FindExpiredDateServiceImpl implements FindExpiredDates {
 
     @Override
     public FindExpiredDatesResponse findUpcomingExpiredDates(LocalDate start, LocalDate end) {
+        List<LocalDate> listOfExpiredDates = new ArrayList<>();
 
         try {
+            logger.info("Checking database for records");
             List<NewEntryDateRequest> findExpired = findExpiredDatesRepo.findByexpiryDateBetween(start, end);
-
-            List<LocalDate> listOfExpiredDates = new ArrayList<>();
             FindExpiredDatesResponse expiredDatesResponse = new FindExpiredDatesResponse();
 
             for (NewEntryDateRequest newEntryDateRequest : findExpired) {
@@ -39,7 +39,6 @@ public class FindExpiredDateServiceImpl implements FindExpiredDates {
 
             expiredDatesResponse.setExpiredDates(listOfExpiredDates);
 
-            logger.info("Checking database for records");
             return expiredDatesResponse;
 
         }catch (Exception e){
