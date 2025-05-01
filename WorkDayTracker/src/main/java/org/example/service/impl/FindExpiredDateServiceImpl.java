@@ -33,12 +33,15 @@ public class FindExpiredDateServiceImpl implements FindExpiredDates {
             List<LocalDate> listOfExpiredDates = new ArrayList<>();
             FindExpiredDatesResponse expiredDatesResponse = new FindExpiredDatesResponse();
 
-            listOfExpiredDates.add(findExpired.get(0).getExpiryDate());
+            for (NewEntryDateRequest newEntryDateRequest : findExpired) {
+                listOfExpiredDates.add(newEntryDateRequest.getExpiryDate());
+            }
 
             expiredDatesResponse.setExpiredDates(listOfExpiredDates);
 
             logger.info("Checking database for records");
             return expiredDatesResponse;
+
         }catch (Exception e){
             e.printStackTrace();
         }

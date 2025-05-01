@@ -50,7 +50,7 @@ public class NewEntryDateController {
 
         LocalDate now = LocalDate.now();
         LocalDate end = LocalDate.now().plusDays(14);
-        logger.info("received request: checking for upcoming expired dates in for the next 2 weeks starting from: {}", now);
+        logger.info("checking for upcoming expired dates for the next 2 weeks starting from: {}", now);
 
         try {
             findExpiredDatesResponse = findExpiredDates.findUpcomingExpiredDates(now,end);
