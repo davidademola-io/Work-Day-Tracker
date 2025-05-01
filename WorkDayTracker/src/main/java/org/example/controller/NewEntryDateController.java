@@ -29,7 +29,6 @@ public class NewEntryDateController {
     NewEntryDateResponse newEntryDateResponse = new NewEntryDateResponse();
     FindExpiredDatesResponse findExpiredDatesResponse = new FindExpiredDatesResponse();
 
-
     @PostMapping("/newEntryDate")
     public NewEntryDateResponse enterDate(@Valid @RequestBody NewEntryDateRequest newEntryDateRequest) {
         logger.info("received request: {}", newEntryDateRequest);
