@@ -61,12 +61,12 @@ public class NewEntryDateController {
         List<NewEntryDateRequest> data = new ArrayList<>();
 
         try {
-            List<LocalDate> findExpiredDatesResponse1 = new ArrayList<>();
-            data = findExpiredDates.findUpcomingExpiredDates(now,end);
+            List<FindExpiredDatesResponse> listOfExpiredDates = new ArrayList<>();
+            FindExpiredDatesResponse findExpiredDatesResponse = new FindExpiredDatesResponse();
+            findExpiredDatesResponse = findExpiredDates.findUpcomingExpiredDates(now,end);
             logger.info("request processed");
 
-            findExpiredDatesResponse1.add(data.get(0).getEntryDate());
-            return findExpiredDatesResponse1;
+            return findExpiredDatesResponse;
         }
         catch (Exception e) {
             logger.info("exception occurred");

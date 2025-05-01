@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,16 +25,23 @@ public class FindExpiredDateServiceImpl implements FindExpiredDates {
     FindExpiredDatesResponse findExpiredDatesResponse = new FindExpiredDatesResponse();
 
     @Override
-    public List<NewEntryDateRequest> findUpcomingExpiredDates(LocalDate start, LocalDate end) {
+    public FindExpiredDatesResponse findUpcomingExpiredDates(LocalDate start, LocalDate end) {
 
         try {
             List<NewEntryDateRequest> findExpired = findExpiredDatesRepo.findByexpiryDateBetween(start, end);
 
+            List<LocalDate> listOfExpiredDates = new ArrayList<>();
+            FindExpiredDatesResponse expiredDatesResponse = new FindExpiredDatesResponse();
+
+            listOfExpiredDates.add(findExpired.get(0).getExpiryDate());
+
+            expiredDatesResponse.setExpiredDates(listOfExpiredDates);
+
             logger.info("Checking database for records");
-            return findExpired;
+            return expiredDatesResponse;
         }catch (Exception e){
             e.printStackTrace();
         }
-        return Collections.emptyList();
+        return findExpiredDatesResponse;
     }
 }

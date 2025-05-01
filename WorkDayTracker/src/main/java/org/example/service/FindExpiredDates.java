@@ -9,6 +9,6 @@ import java.util.List;
 @Service
 public interface FindExpiredDates {
 
-    List<NewEntryDateRequest> findUpcomingExpiredDates(LocalDate start, LocalDate end);
+    FindExpiredDatesResponse findUpcomingExpiredDates(LocalDate start, LocalDate end);
 
 }
