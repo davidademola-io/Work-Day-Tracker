@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class NewEntryDateController {
@@ -28,9 +26,9 @@ public class NewEntryDateController {
     @Autowired
     FindExpiredDates findExpiredDates;
 
-    List<FindExpiredDatesResponse> findExpiredDatesResponse = new ArrayList<>();
-
     NewEntryDateResponse newEntryDateResponse = new NewEntryDateResponse();
+    FindExpiredDatesResponse findExpiredDatesResponse = new FindExpiredDatesResponse();
+
 
     @PostMapping("/newEntryDate")
     public NewEntryDateResponse enterDate(@Valid @RequestBody NewEntryDateRequest newEntryDateRequest) {
@@ -47,22 +45,14 @@ public class NewEntryDateController {
         return newEntryDateResponse;
     }
 
-
-
-
-
-
     @PostMapping("/findExpiredDates")
     public Object upcomingExpiredDates() {
 
         LocalDate now = LocalDate.now();
         LocalDate end = LocalDate.now().plusDays(14);
         logger.info("received request: checking for upcoming expired dates in for the next 2 weeks starting from: {}", now);
-        List<NewEntryDateRequest> data = new ArrayList<>();
 
         try {
-            List<FindExpiredDatesResponse> listOfExpiredDates = new ArrayList<>();
-            FindExpiredDatesResponse findExpiredDatesResponse = new FindExpiredDatesResponse();
             findExpiredDatesResponse = findExpiredDates.findUpcomingExpiredDates(now,end);
             logger.info("request processed");
 
